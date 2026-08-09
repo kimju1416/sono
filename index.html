@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Composer Studio V2.0 (Pro)</title>
+  <title>AI Composer Studio V2.1 (Pro)</title>
   <meta name="description" content="Suno·Udio용 AI 작곡 프롬프트를 클릭 몇 번으로 완성하는 빌더. 장르·분위기·악기·보컬·곡 구조 태그까지 한 번에.">
+  <meta name="theme-color" content="#121212">
   <meta property="og:title" content="AI Composer Studio - Suno/Udio 프롬프트 빌더">
   <meta property="og:description" content="장르·분위기·악기·보컬을 클릭으로 조합해 AI 작곡 프롬프트를 완성하세요.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kimju1416.github.io/sono/">
+  <meta property="og:image" content="https://kimju1416.github.io/sono/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23121212'/%3E%3Cpath d='M40 22h30v10H50v36a14 14 0 1 1-10-13.4V22z' fill='%2300ff7f'/%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -90,7 +97,7 @@
         <div class="w-7 h-7 sm:w-8 sm:h-8 bg-green-900/30 rounded-lg flex items-center justify-center text-[#00ff7f] font-bold shadow-sm border border-green-800 text-sm sm:text-base">🎵</div>
         <h1 class="text-sm sm:text-base lg:text-lg font-bold text-white tracking-tight hidden sm:block">AI Composer Studio</h1>
         <h1 class="text-sm font-bold text-white tracking-tight sm:hidden">AI Studio</h1>
-        <p class="text-[9px] sm:text-[10px] text-gray-400 font-medium hidden lg:block">Suno/Udio Prompt Builder V2.0</p>
+        <p class="text-[9px] sm:text-[10px] text-gray-400 font-medium hidden lg:block">Suno/Udio Prompt Builder V2.1</p>
       </div>
       <nav class="flex space-x-2 sm:space-x-4 lg:space-x-6 h-14">
         <button onclick="switchTab('builder')" id="btn-builder" class="tab-active h-full flex items-center gap-1 sm:gap-2 text-xs sm:text-sm transition-colors px-2 sm:px-3">
@@ -268,7 +275,7 @@
                 <div onclick="addText('in-mood', 'Romantic, Sweet')" class="chip">💖 로맨틱한</div>
                 <div onclick="addText('in-mood', 'Sensual, Sultry')" class="chip">🌹 관능적인</div>
                 <div onclick="addText('in-mood', 'Groovy, Funky')" class="chip">🕺 그루브한</div>
-                <div onclick="addText('in-mood', 'Cute, Bouncy')" class="chip">🧸 귀엽고 통통튀는</div>
+                <div onclick="addText('in-mood', 'Cute, Perky')" class="chip">🧸 귀엽고 통통튀는</div>
                 <div onclick="addText('in-mood', 'Sassy, Cheeky')" class="chip">😎 발랄한</div>
              </div>
           </div>
@@ -474,7 +481,7 @@
 
           <div class="group">
             <label class="flex items-center text-sm font-bold text-[#00ff7f] mb-1"><i class="fas fa-music mr-2"></i>1. 장르 & 스타일 <span class="required-mark">*주제 또는 장르 필수</span></label>
-            <textarea id="in-genre" rows="2" class="w-full p-3 rounded-xl focus:ring-2 focus:ring-[#00ff7f] transition text-sm" placeholder="K-Pop, Jazz, EDM 등 (왼쪽에서 선택)"></textarea>
+            <textarea id="in-genre" rows="2" class="w-full p-3 rounded-xl focus:ring-2 focus:ring-[#00ff7f] transition text-sm" placeholder="K-Pop, Jazz, EDM 등 (칩을 눌러 선택)"></textarea>
           </div>
           
           <div class="flex gap-4">
@@ -495,22 +502,24 @@
 
           <div class="group">
             <label class="flex items-center text-sm font-bold text-orange-400 mb-1"><i class="fas fa-tachometer-alt mr-2"></i>5. 템포 & 프로덕션</label>
-            <textarea id="in-tempo" rows="2" class="w-full p-3 rounded-xl focus:ring-2 focus:ring-orange-500 transition text-sm" placeholder="120 BPM, 80s 레트로, LP 질감 등 (왼쪽에서 선택)"></textarea>
+            <textarea id="in-tempo" rows="2" class="w-full p-3 rounded-xl focus:ring-2 focus:ring-orange-500 transition text-sm" placeholder="120 BPM, 80s 레트로, LP 질감 등 (칩을 눌러 선택)"></textarea>
           </div>
 
           <div class="group">
-            <label class="flex items-center text-sm font-bold text-cyan-400 mb-1"><i class="fas fa-layer-group mr-2"></i>6. 곡 구조 (Lyrics Tags)</label>
+            <div class="flex items-center justify-between mb-1">
+              <label class="flex items-center text-sm font-bold text-cyan-400"><i class="fas fa-layer-group mr-2"></i>6. 곡 구조 (Lyrics Tags)</label>
+              <button onclick="undoStructure()" class="text-[10px] px-2 py-1 rounded bg-[#2a2a2a] hover:bg-[#333] text-gray-400 hover:text-cyan-300 border border-[#444] transition shrink-0"><i class="fas fa-undo mr-1"></i>마지막 태그 지우기</button>
+            </div>
             <p class="text-xs text-gray-500 mb-2">* 이 태그들은 복사 후 Suno/Udio의 <b>가사(Lyrics) 창</b>에 붙여넣으세요.</p>
             <textarea id="in-structure" rows="4" class="w-full p-3 rounded-xl focus:ring-2 focus:ring-cyan-500 transition text-sm font-mono text-cyan-300" placeholder="[Intro], [Verse], [Chorus]..."></textarea>
           </div>
 
         </div>
       </div>
-      <div class="shrink-0 px-4 lg:px-6 py-3 border-t border-[#333] bg-[#181818]">
+      <div class="hidden md:block shrink-0 px-4 lg:px-6 py-3 border-t border-[#333] bg-[#181818]">
         <button onclick="generateAndCopy()" class="w-full max-w-2xl mx-auto bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white text-sm lg:text-base font-bold py-3 lg:py-3.5 px-6 lg:px-8 rounded-full shadow-lg transform hover:-translate-y-1 transition flex items-center justify-center gap-2">
           <i class="fas fa-magic"></i>
-          <span class="hidden sm:inline">프롬프트 생성 & 복사</span>
-          <span class="sm:hidden">생성 & 복사</span>
+          프롬프트 생성 &amp; 복사
         </button>
       </div>
     </section>
@@ -931,6 +940,15 @@
     </div>
   </main>
 
+  <!-- 모바일 전용 하단 고정 생성 바 (빌더 탭에서만 노출).
+       모바일은 1단 스택이라 데스크톱용 버튼이 5,000px 아래에 묻히기 때문. -->
+  <div id="mobileGenBar" class="md:hidden shrink-0 px-3 py-2 bg-[#181818] border-t border-[#333] z-40">
+    <button onclick="generateAndCopy()" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white text-sm font-bold py-3 px-6 rounded-full shadow-lg transition flex items-center justify-center gap-2">
+      <i class="fas fa-magic"></i>
+      프롬프트 생성 &amp; 복사
+    </button>
+  </div>
+
   <footer style="text-align: center; padding: 15px 10px; color: #555; font-size: 11px; font-family: sans-serif; line-height: 1.5;" class="shrink-0 bg-[#1e1e1e] border-t border-[#333]">
     <div class="text-xs sm:text-sm">
         Developed by <strong>김주현(광평중)</strong> &nbsp;|&nbsp; 
@@ -966,7 +984,7 @@
         </div>
       </div>
       <div class="p-3 sm:p-4 bg-[#1e1e1e] rounded-b-2xl sm:rounded-b-3xl text-center">
-          <p class="text-xs sm:text-sm text-gray-400 mb-3">Style 프롬프트는 <b>자동으로 클립보드에 복사</b>되었습니다.<br><span class="text-[10px] sm:text-xs text-gray-500">* 곡 구조 태그는 위의 복사 버튼을 눌러 가사(Lyrics) 칸에 붙여넣으세요.</span></p>
+          <p class="text-xs sm:text-sm text-gray-400 mb-3"><span id="autoCopyNotice">Style 프롬프트는 <b>자동으로 클립보드에 복사</b>되었습니다.</span><br><span class="text-[10px] sm:text-xs text-gray-500">* 곡 구조 태그는 위의 복사 버튼을 눌러 가사(Lyrics) 칸에 붙여넣으세요.</span></p>
           <button onclick="closeModal()" class="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white text-sm sm:text-base font-bold rounded-xl transition shadow-lg shadow-green-900/50">확인</button>
       </div>
     </div>
@@ -1007,6 +1025,8 @@
         const activeBtn = document.getElementById('btn-' + tabName);
         activeBtn.classList.remove('tab-inactive');
         activeBtn.classList.add('tab-active');
+        // 모바일 생성 바는 빌더 탭에서만 (md 이상에서는 md:hidden이 계속 숨김)
+        document.getElementById('mobileGenBar').classList.toggle('hidden', tabName !== 'builder');
     }
 
     function toggleAccordion(id) {
@@ -1031,18 +1051,31 @@
         if (id === 'in-structure') {
             // 구조 태그는 가사 칸에 붙이기 좋게 줄바꿈으로 누적 (중복 허용)
             input.value += (input.value ? '\n' : '') + text;
-        } else if (input.value.includes(text)) {
-            // 이미 선택한 칩을 다시 누르면 제거 (토글)
-            input.value = input.value
-                .replace(text, '')
-                .replace(/,\s*,/g, ', ')
-                .replace(/^[,\s]+|[,\s]+$/g, '');
         } else {
-            input.value = input.value
-                ? input.value.replace(/[,\s]+$/, '') + ', ' + text
-                : text;
+            // 쉼표 단위로 끊어 '완전히 같은 항목'만 토글한다.
+            // (부분 문자열로 지우면 Harpsichord + Harp -> "sichord" 처럼 단어가 잘림)
+            // 칩 자체가 'Uplifting, Energetic'처럼 두 단어짜리인 경우가 있어
+            // 들어오는 값도 쪼갠 뒤 항목 단위로 넣고 뺀다.
+            const incoming = text.split(',').map(s => s.trim()).filter(Boolean);
+            const parts = input.value.split(',').map(s => s.trim()).filter(Boolean);
+            if (incoming.every(t => parts.includes(t))) {
+                incoming.forEach(t => { const i = parts.indexOf(t); if (i > -1) parts.splice(i, 1); });
+            } else {
+                incoming.forEach(t => { if (!parts.includes(t)) parts.push(t); });
+            }
+            input.value = parts.join(', ');
         }
         input.scrollTop = input.scrollHeight;
+        highlightInput(input);
+        saveState();
+    }
+
+    // 구조 태그 마지막 줄만 되돌리기 (전체 초기화 없이 오타 수습)
+    function undoStructure() {
+        const input = document.getElementById('in-structure');
+        const lines = input.value.split('\n').filter(l => l.trim());
+        lines.pop();
+        input.value = lines.join('\n');
         highlightInput(input);
         saveState();
     }
@@ -1052,11 +1085,24 @@
         setTimeout(() => input.classList.remove('ring-2', 'ring-[#00ff7f]', 'bg-[#2a2a2a]'), 300);
     }
 
-    function resetAll() {
-        const m = document.getElementById('resetModal');
+    // 모달 열고 닫기 공통 처리.
+    // 닫힘 애니메이션(200ms) 중에 같은 모달을 다시 열면 예약돼 있던 hidden 타이머가
+    // 새로 연 모달까지 숨겨버리므로, 열 때 반드시 타이머를 취소한다.
+    function openOverlay(id) {
+        const m = document.getElementById(id);
+        clearTimeout(m._hideTimer);
         m.classList.remove('hidden');
-        setTimeout(()=> { m.classList.remove('opacity-0'); m.firstElementChild.classList.remove('scale-95'); }, 10);
+        setTimeout(() => { m.classList.remove('opacity-0'); m.firstElementChild.classList.remove('scale-95'); }, 10);
     }
+
+    function closeOverlay(id) {
+        const m = document.getElementById(id);
+        m.classList.add('opacity-0'); m.firstElementChild.classList.add('scale-95');
+        clearTimeout(m._hideTimer);
+        m._hideTimer = setTimeout(() => m.classList.add('hidden'), 200);
+    }
+
+    function resetAll() { openOverlay('resetModal'); }
 
     function confirmReset() {
         FIELD_IDS.forEach(id => document.getElementById(id).value = '');
@@ -1064,11 +1110,7 @@
         closeResetModal();
     }
 
-    function closeResetModal() {
-        const m = document.getElementById('resetModal');
-        m.classList.add('opacity-0'); m.firstElementChild.classList.add('scale-95');
-        setTimeout(()=> m.classList.add('hidden'), 200);
-    }
+    function closeResetModal() { closeOverlay('resetModal'); }
 
     async function copyText(text) {
         try {
@@ -1092,17 +1134,24 @@
 
     function copyBlock(contentId, btn) {
         const text = document.getElementById(contentId).textContent;
-        copyText(text).then(() => {
-            const orig = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check mr-1"></i>복사됨!';
-            setTimeout(() => { btn.innerHTML = orig; }, 1200);
+        // 연타해도 원래 라벨이 '복사됨!'으로 굳지 않도록 최초 1회만 보관
+        if (!btn.dataset.origLabel) btn.dataset.origLabel = btn.innerHTML;
+        copyText(text).then((ok) => {
+            btn.innerHTML = ok
+                ? '<i class="fas fa-check mr-1"></i>복사됨!'
+                : '<i class="fas fa-exclamation-triangle mr-1"></i>복사 실패';
+            clearTimeout(btn._resetTimer);
+            btn._resetTimer = setTimeout(() => { btn.innerHTML = btn.dataset.origLabel; }, 1400);
         });
     }
 
     function showModal(styleTxt, structureTxt) {
-        const modal = document.getElementById('copyModal');
         const cleanText = styleTxt.trim();
-        copyText(cleanText);
+        copyText(cleanText).then((ok) => {
+            document.getElementById('autoCopyNotice').innerHTML = ok
+                ? 'Style 프롬프트는 <b>자동으로 클립보드에 복사</b>되었습니다.'
+                : '⚠️ 자동 복사에 실패했습니다. 위의 <b>복사 버튼</b>을 눌러주세요.';
+        });
         document.getElementById('modalContent').textContent = cleanText;
         document.getElementById('styleCharCount').textContent = '(' + cleanText.length + '자)';
         const structureBlock = document.getElementById('structureBlock');
@@ -1112,26 +1161,15 @@
         } else {
             structureBlock.classList.add('hidden');
         }
-        modal.classList.remove('hidden');
-        setTimeout(() => { modal.classList.remove('opacity-0'); modal.firstElementChild.classList.remove('scale-95'); }, 10);
+        openOverlay('copyModal');
     }
-    
+
     function showAlert(msg) {
         document.getElementById('alertMessage').innerHTML = msg;
-        const m = document.getElementById('alertModal');
-        m.classList.remove('hidden');
-        setTimeout(()=> { m.classList.remove('opacity-0'); m.firstElementChild.classList.remove('scale-95'); }, 10);
+        openOverlay('alertModal');
     }
-    function closeAlert() {
-        const m = document.getElementById('alertModal');
-        m.classList.add('opacity-0'); m.firstElementChild.classList.add('scale-95');
-        setTimeout(()=> m.classList.add('hidden'), 200);
-    }
-    function closeModal() {
-        const m = document.getElementById('copyModal');
-        m.classList.add('opacity-0'); m.firstElementChild.classList.add('scale-95');
-        setTimeout(()=> m.classList.add('hidden'), 200);
-    }
+    function closeAlert() { closeOverlay('alertModal'); }
+    function closeModal() { closeOverlay('copyModal'); }
 
     function generateAndCopy() {
         const topic = document.getElementById('in-topic').value.trim();
@@ -1165,27 +1203,29 @@
         showModal(prompt, structure);
     }
 
+    // Style 칸에 그대로 붙여넣는 값이므로 [라벨] 같은 대괄호는 넣지 않는다.
+    // (Suno는 대괄호를 메타태그로 해석해 스타일이 뭉개질 수 있음)
     const templates = [
-        `[K-Pop] K-Pop girl group song, Energetic, Catchy hook, Female Vocals, Dance-pop, Synth-pop`,
-        `[Lo-Fi] Lo-Fi Hip Hop, Chill, Relaxing, Study beats, Vinyl crackle, Piano, Downtempo`,
-        `[Epic BGM] Cinematic Orchestral, Epic, Heroic, Building tension, Powerful film score, Big drums, Strings`,
-        `[Sad Ballad] Emotional Ballad, Sad, Heartbreak, Piano, Male Vocals, Slow tempo, Rain sound`,
-        `[EDM Party] EDM, Big Room House, High energy, Festival, Heavy bass drop, Synthesizer`,
-        `[Jazz Bar] Smooth Jazz, Relaxing, Saxophone, Double bass, Piano, Cocktail bar atmosphere, Instrumental`,
-        `[Power Rock] Hard Rock, Energetic, Electric Guitar, Distortion, Powerful Male Vocals, Drums`,
-        `[8-Bit Game] 8-bit Chiptune, Retro Video Game music, Cute, Bouncy, Upbeat, Classic arcade style`,
-        `[Tropical] Tropical House, Summer vibes, Beach, Pluck synth, Marimba, Upbeat, Female Vocals`,
-        `[Hip Hop] 90s Boom Bap Hip Hop, Old school, Scratching, Heavy drums, Male Rap`,
-        `[Gospel] Gospel, Soulful, Choir, Hand claps, Uplifting, Organ, Powerful vocals`,
-        `[R&B] R&B, Slow Jam, Sexy, Groovy bass, Smooth Female Vocals, Night vibe`,
-        `[Trot] Korean Trot, Upbeat, Playful, Catchy chorus, Brass section, Electric organ, Festive party mood`,
-        `[국악퓨전] Korean traditional fusion, Gayageum, Daegeum, Janggu, Modern hip hop beat, Epic, Cinematic`,
-        `[동요] Children's song, Cute, Playful, Simple catchy melody, Xylophone, Ukulele, Children choir, Sing-along`,
-        `[응원가] Stadium anthem, Energetic chant, Hand claps, Big drums, Group vocals, Sing-along chorus, Triumphant`,
-        `[캐럴] Christmas carol, Warm, Cozy, Sleigh bells, Choir harmonies, Joyful, Festive`,
-        `[시티팝] City Pop, 80s Japanese retro, Groovy bass, Smooth female vocals, Saxophone, Night drive vibe`,
-        `[신스웨이브] Synthwave, 80s retro futuristic, Analog synthesizer, Driving beat, Neon night, Nostalgic`,
-        `[수면음악] Ambient, Sleep music, Meditation, Soft synth pads, Gentle piano, Very slow, Calm, Instrumental Only`
+        `K-Pop girl group song, Energetic, Catchy hook, Female Vocals, Dance-pop, Synth-pop`,
+        `Lo-Fi Hip Hop, Chill, Relaxing, Study beats, Vinyl crackle, Piano, Downtempo`,
+        `Cinematic Orchestral, Epic, Heroic, Building tension, Powerful film score, Big drums, Strings`,
+        `Emotional Ballad, Sad, Heartbreak, Piano, Male Vocals, Slow tempo, Rain sound`,
+        `EDM, Big Room House, High energy, Festival, Heavy bass drop, Synthesizer`,
+        `Smooth Jazz, Relaxing, Saxophone, Double bass, Piano, Cocktail bar atmosphere, Instrumental`,
+        `Hard Rock, Energetic, Electric Guitar, Distortion, Powerful Male Vocals, Drums`,
+        `8-bit Chiptune, Retro Video Game music, Cute, Bouncy, Upbeat, Classic arcade style`,
+        `Tropical House, Summer vibes, Beach, Pluck synth, Marimba, Upbeat, Female Vocals`,
+        `90s Boom Bap Hip Hop, Old school, Scratching, Heavy drums, Male Rap`,
+        `Gospel, Soulful, Choir, Hand claps, Uplifting, Organ, Powerful vocals`,
+        `R&B, Slow Jam, Sexy, Groovy bass, Smooth Female Vocals, Night vibe`,
+        `Korean Trot, Upbeat, Playful, Catchy chorus, Brass section, Electric organ, Festive party mood`,
+        `Korean traditional fusion, Gayageum, Daegeum, Janggu, Modern hip hop beat, Epic, Cinematic`,
+        `Children's song, Cute, Playful, Simple catchy melody, Xylophone, Ukulele, Children choir, Sing-along`,
+        `Stadium anthem, Energetic chant, Hand claps, Big drums, Group vocals, Sing-along chorus, Triumphant`,
+        `Christmas carol, Warm, Cozy, Sleigh bells, Choir harmonies, Joyful, Festive`,
+        `City Pop, 80s Japanese retro, Groovy bass, Smooth female vocals, Saxophone, Night drive vibe`,
+        `Synthwave, 80s retro futuristic, Analog synthesizer, Driving beat, Neon night, Nostalgic`,
+        `Ambient, Sleep music, Meditation, Soft synth pads, Gentle piano, Very slow, Calm, Instrumental Only`
     ];
 
     function copyTemplate(index) {
@@ -1211,6 +1251,34 @@
 
     loadState();
     FIELD_IDS.forEach(id => document.getElementById(id).addEventListener('input', saveState));
+
+    // ===== 모달 닫기: ESC 키 / 바깥 배경 클릭 =====
+    // 위에 떠 있는 것부터 닫는다 (초기화 > 경고 > 결과)
+    const MODAL_STACK = [
+        { id: 'resetModal', close: closeResetModal },
+        { id: 'alertModal', close: closeAlert },
+        { id: 'copyModal',  close: closeModal }
+    ];
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        const top = MODAL_STACK.find(m => !document.getElementById(m.id).classList.contains('hidden'));
+        if (top) top.close();
+    });
+
+    MODAL_STACK.forEach(m => {
+        const el = document.getElementById(m.id);
+        el.addEventListener('click', (e) => { if (e.target === el) m.close(); });
+    });
+
+    // ===== 칩·카드 키보드 접근 (Tab 이동 + Enter/Space 선택) =====
+    document.querySelectorAll('.chip, .template-card').forEach(el => {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+        });
+    });
   </script>
 </body>
 </html>
