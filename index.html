@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Composer Studio V2.1 (Pro)</title>
-  <meta name="description" content="Suno·Udio용 AI 작곡 프롬프트를 클릭 몇 번으로 완성하는 빌더. 장르·분위기·악기·보컬·곡 구조 태그까지 한 번에.">
+  <title>AI Composer Studio V2.2 (Pro)</title>
+  <meta name="description" content="Suno용 AI 작곡 프롬프트를 클릭 몇 번으로 완성하는 빌더. 장르·분위기·악기·보컬·곡 구조 태그까지 한 번에.">
   <meta name="theme-color" content="#121212">
-  <meta property="og:title" content="AI Composer Studio - Suno/Udio 프롬프트 빌더">
+  <meta property="og:title" content="AI Composer Studio - Suno 프롬프트 빌더">
   <meta property="og:description" content="장르·분위기·악기·보컬을 클릭으로 조합해 AI 작곡 프롬프트를 완성하세요.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kimju1416.github.io/sono/">
@@ -97,7 +97,7 @@
         <div class="w-7 h-7 sm:w-8 sm:h-8 bg-green-900/30 rounded-lg flex items-center justify-center text-[#00ff7f] font-bold shadow-sm border border-green-800 text-sm sm:text-base">🎵</div>
         <h1 class="text-sm sm:text-base lg:text-lg font-bold text-white tracking-tight hidden sm:block">AI Composer Studio</h1>
         <h1 class="text-sm font-bold text-white tracking-tight sm:hidden">AI Studio</h1>
-        <p class="text-[9px] sm:text-[10px] text-gray-400 font-medium hidden lg:block">Suno/Udio Prompt Builder V2.1</p>
+        <p class="text-[9px] sm:text-[10px] text-gray-400 font-medium hidden lg:block">Suno Prompt Builder V2.2</p>
       </div>
       <nav class="flex space-x-2 sm:space-x-4 lg:space-x-6 h-14">
         <button onclick="switchTab('builder')" id="btn-builder" class="tab-active h-full flex items-center gap-1 sm:gap-2 text-xs sm:text-sm transition-colors px-2 sm:px-3">
@@ -453,7 +453,7 @@
                 <div onclick="addText('in-structure', '[Rap Section]')" class="chip bg-purple-900/30 border-purple-700 text-purple-200">🧢 [Rap Section] 랩 구간</div>
                 <div onclick="addText('in-structure', '[Drop]')" class="chip bg-purple-900/30 border-purple-700 text-purple-200">⚡ [Drop] 베이스 드롭</div>
                 <div onclick="addText('in-structure', '[Build-up]')" class="chip bg-purple-900/30 border-purple-700 text-purple-200">📊 [Build-up] 상승 구간</div>
-                <div onclick="addText('in-structure', '[Breakdown]')" class="chip bg-purple-900/30 border-purple-700 text-purple-200">💔 [Breakdown] 감정 분출</div>
+                <div onclick="addText('in-structure', '[Breakdown]')" class="chip bg-purple-900/30 border-purple-700 text-purple-200">💔 [Breakdown] 확 비우기</div>
              </div>
              <p class="text-[10px] text-gray-500 font-bold mb-2 tracking-wider">TRANSITION & EFFECT TAGS</p>
              <div class="flex flex-wrap gap-2">
@@ -510,7 +510,7 @@
               <label class="flex items-center text-sm font-bold text-cyan-400"><i class="fas fa-layer-group mr-2"></i>6. 곡 구조 (Lyrics Tags)</label>
               <button onclick="undoStructure()" class="text-[10px] px-2 py-1 rounded bg-[#2a2a2a] hover:bg-[#333] text-gray-400 hover:text-cyan-300 border border-[#444] transition shrink-0"><i class="fas fa-undo mr-1"></i>마지막 태그 지우기</button>
             </div>
-            <p class="text-xs text-gray-500 mb-2">* 이 태그들은 복사 후 Suno/Udio의 <b>가사(Lyrics) 창</b>에 붙여넣으세요.</p>
+            <p class="text-xs text-gray-500 mb-2">* 이 태그들은 복사 후 Suno의 <b>가사(Lyrics) 창</b>에 붙여넣으세요.</p>
             <textarea id="in-structure" rows="4" class="w-full p-3 rounded-xl focus:ring-2 focus:ring-cyan-500 transition text-sm font-mono text-cyan-300" placeholder="[Intro], [Verse], [Chorus]..."></textarea>
           </div>
 
@@ -579,7 +579,7 @@
                     <div class="term-item"><span class="term-title">⛓️ Trap (트랩):</span> 힙합의 하위 장르로, 808 베이스, 빠른 하이햇, 무거운 드럼이 특징입니다. 어둡고 강렬한 분위기로 클럽 음악으로도 인기가 많습니다.</div>
                     <div class="term-item"><span class="term-title">🌴 Reggae (레게):</span> 자메이카에서 시작된 장르로, 느긋한 리듬과 오프비트 기타가 특징입니다. 밥 말리가 대표적이며, 평화와 자유의 메시지를 담고 있습니다.</div>
                     <div class="term-item"><span class="term-title">🇧🇷 Bossa Nova (보사노바):</span> 브라질의 재즈 스타일로, 부드러운 기타 리듬과 나른한 보컬이 특징입니다. 카페나 라운지에서 듣기 좋은 세련된 분위기를 만듭니다.</div>
-                    <div class="term-item"><span class="term-title">💃 Flamenco (플라멩코):</span> 스페인 안달루시아 지방의 열정적인 음악으로, 강렬한 기타 연주와 박수, 탭댄스가 어우러집니다. 정열적이고 극적인 감정 표현이 특징입니다.</div>
+                    <div class="term-item"><span class="term-title">💃 Flamenco (플라멩코):</span> 스페인 안달루시아 지방의 열정적인 음악으로, 강렬한 기타 연주와 손뼉(팔마스), 발 구르기(사파테아도)가 어우러집니다. 정열적이고 극적인 감정 표현이 특징입니다.</div>
                     <div class="term-item"><span class="term-title">🍀 Celtic (켈틱):</span> 아일랜드와 스코틀랜드의 전통 음악으로, 백파이프, 피들, 틴 휘슬 등이 사용됩니다. 판타지 영화나 게임 배경음악으로 자주 쓰입니다.</div>
                     <div class="term-item"><span class="term-title">🥁 Afrobeat (아프로비트):</span> 서아프리카의 리듬과 재즈, 펑크가 결합된 장르입니다. 복잡한 타악기 리듬과 그루브가 특징이며, 춤추기 좋은 에너지가 넘칩니다.</div>
                     <div class="term-item"><span class="term-title">🤘 Hard Rock (하드락):</span> 강력한 일렉기타 리프와 드럼 비트가 특징인 락 음악입니다. AC/DC, Led Zeppelin 같은 밴드가 대표적이며, 에너지 넘치는 사운드가 매력입니다.</div>
@@ -633,7 +633,7 @@
                     <div class="term-item"><span class="term-title">▶️ Intro (인트로):</span> 노래의 시작 부분입니다. 분위기를 잡는 전주 구간으로, 듣는 이의 관심을 끌고 곡의 톤을 설정합니다. 보통 8~16마디 정도입니다.</div>
                     <div class="term-item"><span class="term-title">🎤 Verse (벌스):</span> 노래의 '절' 부분입니다. (1절, 2절) 이야기를 풀어내는 구간이라 멜로디가 차분한 편입니다. 각 벌스마다 가사가 다르며 스토리를 전개합니다.</div>
                     <div class="term-item"><span class="term-title">📈 Pre-Chorus (프리코러스):</span> Verse에서 Chorus로 넘어가기 전, 감정을 고조시키는 '빌드업' 구간입니다. 긴장감을 쌓아 후렴구의 폭발력을 극대화합니다.</div>
-                    <div class="term-item"><span class="term-title">💥 Chorus (코러스/후렴):</span> 노래의 하이라이트, '후렴'입니다. 가장 신나고 기억에 남는 멜로디가 나오며, 곡의 핵심 메시지가 담겨있습니다. Hook(훅)이라고도 하며, 반복되어 중독성을 만듭니다.</div>
+                    <div class="term-item"><span class="term-title">💥 Chorus (코러스/후렴):</span> 노래의 하이라이트, '후렴'입니다. 가장 신나고 기억에 남는 멜로디가 나오며, 곡의 핵심 메시지가 담겨있습니다. 매번 같은 가사로 반복되어 곡의 중심을 잡아줍니다. (후렴 안에 아래의 Hook이 들어가는 경우가 많지만, 둘은 같은 말이 아닙니다.)</div>
                     <div class="term-item"><span class="term-title">🎵 Post-Chorus (포스트코러스):</span> 후렴 직후에 오는 짧은 구간으로, 후렴의 여운을 이어가거나 중독적인 훅을 한 번 더 강조합니다. K-Pop에서 자주 사용됩니다.</div>
                     <div class="term-item"><span class="term-title">🌉 Bridge (브릿지):</span> 노래 후반부에 분위기를 한번 바꿔주는 전환점입니다. 보통 2절 끝나고 나오며, 새로운 멜로디나 악기 편곡으로 신선함을 더합니다. 감정의 클라이맥스를 만들기도 합니다.</div>
                     <div class="term-item"><span class="term-title">⏹️ Outro (아웃트로):</span> 노래가 끝나는 부분입니다. 서서히 작아지거나(Fade out) 깔끔하게 끝내며(Hard ending), 곡의 여운을 남깁니다.</div>
@@ -643,10 +643,10 @@
                     <div class="term-item"><span class="term-title">⚡ Drop (드롭):</span> EDM에서 베이스가 강렬하게 터지는 순간입니다. 빌드업 후 오는 에너지 폭발 구간으로, 관객들이 가장 열광하는 부분입니다.</div>
                     <div class="term-item"><span class="term-title">📊 Build-up (빌드업):</span> 드롭 전에 긴장감을 쌓아올리는 구간입니다. 점점 커지는 소리, 빨라지는 리듬으로 기대감을 극대화합니다.</div>
                     <div class="term-item"><span class="term-title">💔 Breakdown (브레이크다운):</span> 곡의 강도를 갑자기 낮추는 구간입니다. 드럼이 빠지거나 악기가 줄어들어 대조를 만들며, 감정을 더 강하게 전달합니다.</div>
-                    <div class="term-item"><span class="term-title">🪝 Hook (훅):</span> 노래에서 가장 중독적이고 기억에 남는 짧은 멜로디나 가사입니다. "귀에 걸린다"는 의미로, 후렴구나 특정 구간에서 반복됩니다.</div>
+                    <div class="term-item"><span class="term-title">🪝 Hook (훅):</span> 노래에서 가장 중독적이고 기억에 남는 짧은 조각입니다. "귀에 걸린다"는 뜻으로, 후렴 속 한 소절일 수도 있지만 인트로의 기타 리프나 짧은 신디사이저 멜로디처럼 <b>가사가 아닌 연주</b>가 훅이 되기도 합니다.</div>
                     <div class="term-item"><span class="term-title">🎼 Interlude (인터루드):</span> 곡과 곡 사이, 또는 곡 중간의 짧은 막간입니다. 분위기 전환이나 휴식을 위한 구간으로, 보통 보컬 없이 악기나 효과음만 나옵니다.</div>
                     <div class="term-item"><span class="term-title">🔁 Refrain (리프레인):</span> 벌스 끝에 반복되는 짧은 구절입니다. 후렴구와 비슷하지만 더 짧고 단순하며, 곡의 주제를 강조합니다.</div>
-                    <div class="term-item"><span class="term-title">🎤 Ad-lib (애드립):</span> 곡 끝부분에 가수가 즉흥적으로 추가하는 보컬입니다. "Yeah!", "Ooh~", "Woo~" 같은 감탄사나 고음 기교로 감정을 폭발시킵니다.</div>
+                    <div class="term-item"><span class="term-title">🎤 Ad-lib (애드립):</span> 주선율 뒤에 가수가 즉흥적으로 얹는 보컬입니다. "Yeah!", "Ooh~", "Woo~" 같은 감탄사나 고음 기교로, 후렴 뒷배경이나 곡 마무리 등 <b>곡 전반</b>에 걸쳐 감정을 더합니다.</div>
                     <div class="term-item"><span class="term-title">🌫️ Fade Out (페이드 아웃):</span> 노래가 점점 작아지면서 자연스럽게 끝나는 방식입니다. 70~80년대 팝송에서 많이 사용되었으며, 여운을 남기는 효과가 있습니다.</div>
                 </div>
             </div>
@@ -690,7 +690,7 @@
                     <div class="term-item"><span class="term-title">🎸 Riff (리프):</span> 곡 전체에서 반복되는 짧고 인상적인 연주 패턴입니다. 록의 기타 리프처럼 곡의 정체성을 만드는 핵심 재료입니다.</div>
                     <div class="term-item"><span class="term-title">🕺 Groove (그루브):</span> 몸이 절로 움직여지는 리듬의 '맛'입니다. 펑크, R&B, 시티팝에서 특히 중요하며, 프롬프트에 "Groovy"를 넣으면 리듬감이 살아납니다.</div>
                     <div class="term-item"><span class="term-title">🌊 Reverb (리버브):</span> 공간의 울림을 더하는 효과입니다. 많이 쓰면 몽환적·웅장해지고, 적게 쓰면 바싹 붙은 친밀한 소리가 됩니다.</div>
-                    <div class="term-item"><span class="term-title">🎚️ Mixing (믹싱):</span> 보컬·악기 등 각 소리의 크기와 위치, 음색 균형을 맞추는 작업입니다. Suno/Udio는 자동으로 처리하지만, 결과물이 너무 밋밋하거나 특정 악기가 묻힐 때 "Prominent vocals", "Punchy bass" 같은 표현으로 균형을 유도할 수 있습니다.</div>
+                    <div class="term-item"><span class="term-title">🎚️ Mixing (믹싱):</span> 보컬·악기 등 각 소리의 크기와 위치, 음색 균형을 맞추는 작업입니다. Suno는 자동으로 처리하지만, 결과물이 너무 밋밋하거나 특정 악기가 묻힐 때 "Prominent vocals", "Punchy bass" 같은 표현으로 균형을 유도할 수 있습니다.</div>
                     <div class="term-item"><span class="term-title">💽 Mastering (마스터링):</span> 완성된 곡의 전체 음량과 음질을 최종적으로 다듬는 후반 작업입니다. Suno의 <b>"Remaster"</b> 기능이 바로 이 과정을 최신 모델로 다시 적용해 음질을 높여줍니다.</div>
                     <div class="term-item"><span class="term-title">☁️ Ethereal (몽환적):</span> 하늘을 떠다니는 듯한, 초현실적이고 신비로운 분위기입니다. 리버브를 많이 써서 공간감을 만듭니다.</div>
                     <div class="term-item"><span class="term-title">🔮 Mysterious (신비로운):</span> 불안하면서도 호기심을 자극하는 분위기입니다. 단조, 불협화음, 낮은 음역이 자주 사용됩니다.</div>
@@ -715,7 +715,7 @@
             <span class="w-10 h-10 bg-indigo-900/50 text-indigo-400 rounded-xl flex items-center justify-center mr-3 text-xl">📖</span>
             사용 가이드
         </h2>
-        <p class="text-gray-400 text-sm ml-14">이 빌더로 프롬프트를 만들고, Suno·Udio에 넣어 곡을 완성하는 법.</p>
+        <p class="text-gray-400 text-sm ml-14">이 빌더로 프롬프트를 만들고, Suno에 넣어 곡을 완성하는 법.</p>
       </div>
 
       <div class="space-y-10">
@@ -790,7 +790,7 @@
             <h3 class="text-lg font-bold text-gray-200 mb-4 flex items-center"><span class="w-6 h-6 rounded-full bg-gray-700 text-white text-xs flex items-center justify-center mr-2">1</span> 커스텀 모드 활성화 (필수!)</h3>
             <div class="bg-[#121212] p-5 rounded-xl border border-[#333] text-gray-300 text-sm leading-relaxed space-y-3">
                 <p><b class="text-[#00ff7f]">✅ 반드시 Custom Mode를 켜세요!</b></p>
-                <p>Suno나 Udio에서 <b>[Create]</b> 버튼을 누른 후, 상단의 <b>Custom Mode</b> 토글 스위치를 ON으로 바꿔주세요.</p>
+                <p>Suno에서 <b>[Create]</b> 버튼을 누른 후, 상단의 <b>Custom Mode</b> 토글 스위치를 ON으로 바꿔주세요.</p>
                 <div class="bg-[#1e1e1e] p-3 rounded border border-[#444] mt-2">
                     <p class="text-xs text-yellow-300">💡 <b>왜 Custom Mode가 중요한가요?</b></p>
                     <p class="text-xs text-gray-400 mt-1">일반 모드는 AI가 임의로 스타일을 선택하지만, Custom Mode에서는 <b>가사</b>와 <b>스타일</b>을 분리해서 정확하게 제어할 수 있습니다. 원하는 결과물을 얻으려면 필수입니다!</p>
@@ -899,8 +899,9 @@
                     <p class="text-xs text-gray-400">같은 프롬프트로도 생성할 때마다 결과가 다릅니다. 마음에 드는 결과가 나올 때까지 2~5번 정도 시도해보세요.</p>
                 </div>
                 <div class="bg-gradient-to-r from-cyan-900/20 to-blue-900/20 p-4 rounded-xl border border-cyan-900/50">
-                    <p class="font-bold text-cyan-400 text-sm mb-2">✂️ Extend 기능 활용하기</p>
-                    <p class="text-xs text-gray-400">Suno는 모델 버전에 따라 한 번에 최대 4~8분까지 생성되고, Udio는 짧은 구간을 만들어 이어붙이는 방식입니다. 곡이 짧게 끝났다면 생성된 곡의 <b>"Extend"</b> 버튼을 눌러 이어서 만들 수 있습니다.</p>
+                    <p class="font-bold text-cyan-400 text-sm mb-2">⏱️ 곡 길이는 슬라이더로 정하세요</p>
+                    <p class="text-xs text-gray-400">최신 모델(v5.5)에서는 만들기 전에 <b>Duration 슬라이더</b>로 곡 길이를 <b>10초~6분</b> 사이에서 직접 정할 수 있습니다. 수업 도입 BGM 30초, 졸업식 노래 3분처럼 필요한 길이를 미리 지정하세요.</p>
+                    <p class="text-xs text-gray-400 mt-1">슬라이더가 없는 이전 모델이거나 곡이 짧게 끝났다면, 생성된 곡의 <b>"Extend"</b> 버튼으로 뒤를 이어 붙일 수 있습니다.</p>
                 </div>
                 <div class="bg-gradient-to-r from-rose-900/20 to-red-900/20 p-4 rounded-xl border border-rose-900/50">
                     <p class="font-bold text-rose-400 text-sm mb-2">🚫 Exclude Styles로 빼고 싶은 것 지정하기</p>
@@ -963,10 +964,27 @@
                     <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Extend</span><span class="text-gray-400">곡을 이어서 더 길게 만듭니다. 이어붙일 지점의 시간(초)을 지정할 수 있습니다.</span></div>
                     <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Replace Section</span><span class="text-gray-400">마음에 안 드는 구간(예: 2절만)을 골라 그 부분만 다시 생성합니다.</span></div>
                     <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Cover</span><span class="text-gray-400">같은 가사·멜로디를 완전히 다른 장르로 재해석합니다. 발라드를 록으로, 동요를 재즈로!</span></div>
-                    <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Persona</span><span class="text-gray-400">마음에 든 곡의 목소리·스타일을 저장해서 다음 곡에도 같은 가수처럼 쓸 수 있습니다.</span></div>
+                    <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Voices</span><span class="text-gray-400">마음에 든 곡의 목소리·스타일을 저장해 다음 곡에도 같은 가수처럼 씁니다. 예전 <b>Persona</b>가 이 메뉴로 들어왔습니다.</span></div>
                     <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Crop</span><span class="text-gray-400">곡의 앞뒤 불필요한 부분을 잘라냅니다.</span></div>
                     <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Remaster</span><span class="text-gray-400">예전에 만든 곡을 최신 모델로 다시 렌더링해 음질을 올립니다.</span></div>
-                    <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Stems</span><span class="text-gray-400">보컬·반주(MR)를 분리해 내려받습니다. 노래방 반주나 영상 BGM 제작에 유용합니다.</span></div>
+                    <div class="flex items-start gap-2 text-xs"><span class="shrink-0 w-20 font-bold text-[#00ff7f]">Stems</span><span class="text-gray-400">보컬·드럼·베이스·반주를 갈래별로 분리해 내려받습니다. 노래방 반주나 영상 BGM 만들 때 유용합니다.</span></div>
+                </div>
+                <p class="text-[11px] text-gray-500 mt-3 pt-3 border-t border-[#333]">* Suno는 기능이 자주 바뀝니다. 메뉴 이름이 안 보이면 곡을 만든 뒤 곡 위에서 마우스 오른쪽 버튼(모바일은 길게 누르기)을 눌러보세요.</p>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-lg font-bold text-gray-200 mb-4 flex items-center"><span class="w-6 h-6 rounded-full bg-gray-700 text-white text-xs flex items-center justify-center mr-2">7</span> 학교에서 쓰기 전 확인할 것</h3>
+            <div class="space-y-3">
+                <div class="bg-[#121212] p-4 rounded-xl border border-yellow-900/50">
+                    <p class="font-bold text-yellow-400 text-sm mb-2">📥 다운로드가 되는지 먼저 확인하세요</p>
+                    <p class="text-xs text-gray-400">수업에서 쓰려면 <b>음원 파일을 내려받을 수 있어야</b> 합니다. Suno는 요금제에 따라 mp3·wav 다운로드가 가능합니다.</p>
+                    <p class="text-xs text-gray-400 mt-1">한편 <b>Udio</b>는 음반사와의 저작권 합의 이후 <b>만든 곡의 다운로드가 막혀</b> 있습니다(2026년 8월 기준). 곡을 파일로 받아 행사에 틀어야 한다면 Suno를 쓰세요. 이 빌더의 프롬프트는 두 서비스 모두에 넣을 수 있지만, 안내는 Suno를 기준으로 합니다.</p>
+                </div>
+                <div class="bg-[#121212] p-4 rounded-xl border border-[#333]">
+                    <p class="font-bold text-[#00ff7f] text-sm mb-2">🏫 학생 창작물로 쓸 때</p>
+                    <p class="text-xs text-gray-400">상업적 이용 권리는 <b>유료 플랜</b>에서 열리는 경우가 많습니다. 교내 행사·수업 자료 수준을 넘어 외부 공개나 판매를 계획한다면 가입한 요금제의 약관을 먼저 확인하세요.</p>
+                    <p class="text-xs text-gray-400 mt-1">가입 연령은 <b>만 13세 이상</b>이고, <b>18세 미만은 보호자의 동의</b>가 있어야 이용할 수 있습니다(Suno 이용약관). 초등학생은 물론 중·고등학생도 학생 계정을 일괄로 만들게 하기보다 <b>교사 계정으로 시연</b>하거나 가정에 안내 후 진행하는 편이 안전합니다.</p>
                 </div>
             </div>
         </div>
@@ -1274,7 +1292,7 @@
     const templates = [
         `K-Pop girl group song, Energetic, Catchy hook, Female Vocals, Dance-pop, Synth-pop`,
         `Lo-Fi Hip Hop, Chill, Relaxing, Study beats, Vinyl crackle, Piano, Downtempo`,
-        `Cinematic Orchestral, Epic, Heroic, Building tension, Powerful film score, Big drums, Strings`,
+        `Cinematic Orchestral, Epic, Heroic, Building tension, Powerful film score, Big drums, Strings, Instrumental`,
         `Emotional Ballad, Sad, Heartbreak, Piano, Male Vocals, Slow tempo, Rain sound`,
         `EDM, Big Room House, High energy, Festival, Heavy bass drop, Synthesizer`,
         `Smooth Jazz, Relaxing, Saxophone, Double bass, Piano, Cocktail bar atmosphere, Instrumental`,
